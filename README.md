@@ -14,16 +14,11 @@
 
 ### Подготовка
 
-1. Создала директорию проекта `containers07`:
-   ```bash
-   mkdir containers07
-   cd containers07
-   ```
-2. Скопировала репозиторий :
+1. Скопировала репозиторий :
    ```bash
    git clone
    ```
-   ![images](\images\1.png)
+   ![images](images/1.png)
 
 ### Сайт на PHP
 
@@ -31,11 +26,11 @@
    ```bash
    mkdir -p mounts/site
    ```
-![images](\images\2.png)
+![images](images/2.png)
 
 2. Скопировала файлы PHP-сайта из лабораторной работы №1 в директорию `mounts/site`, `index.php`.
 
-![images](\images\3.png)
+![images](images/3.png)
 
 ### Конфигурационные файлы
 
@@ -45,12 +40,13 @@
    # Ignore files and directories
    mounts/site/*
    ```
-   ![images](\images\4.png)
+   ![images](images/4.png)
 
 2. Создала директорию `nginx`:
    ```bash
    mkdir nginx
    ```
+
 3. Создала файл `nginx/default.conf` с конфигурацией Nginx:
 
    ```nginx
@@ -109,7 +105,7 @@
     volumes:
       db_data: {}
    ```
-   ![images](\images\5.png)
+   ![images](images/5.png)
 
 5. Создала файл `mysql.env` в корне проекта:
    ```bash
@@ -125,20 +121,20 @@
    ```bash
    docker-compose up -d
    ```
-   ![images](\images\6.png)
+   ![images](images/6.png)
 
-   ![images](\images\7.png)
+   ![images](images/7.png)
 
-  ![images](\images\8.png)
+  ![images](images/8.png)
 
 2. Проверила статус контейнеров:
 
    Все три контейнера: `frontend`, `backend`, `database` были активны.
-   ![images](\images\10.png)
+   ![images](images/10.png)
 
 3. Открыла браузер и перешела по адресу `http://localhost`. Сайт отобразился корректно, подтверждая работу PHP-приложения через Nginx и php-fpm.
 
-![images](\images\9.png)
+![images](images/9.png)
 
 ### Ответы на вопросы
 
@@ -157,15 +153,15 @@
 2. **Где хранятся данные базы данных?**  
    Данные базы хранятся в Docker-томе `db_data`, подключенном к контейнеру `database` по пути `/var/lib/mysql`.
 
-   ![images](\images\11.png)
+   ![images](images/11.png)
 
 3. **Как называются контейнеры проекта?**  
-   Контейнеры именуются как `containers07-<сервис>-1`:  
+   Контейнеры именуются как: `containers07-<сервис>-1`:  
    - `frontend` → `containers07-frontend-1`  
    - `backend` → `containers07-backend-1`  
    - `database` → `containers07-database-1`
-   
-    ![images](\images\12.png)
+
+    ![images](images/12.png)
 
 4. **Как добавить файл `app.env` с переменной `APP_VERSION` для `backend` и `frontend`?**  
 
@@ -180,6 +176,7 @@
 Хранение `APP_VERSION` в отдельном файле app.env упрощает управление настройками, особенно если переменных станет больше.
 
 ## Выводы
+
 В ходе лабораторной работы создано многоконтейнерное PHP-приложение с использованием Docker Compose. Реализованы три сервиса: nginx (frontend), php-fpm (backend) и mysql (база данных). Освоены ключевые приёмы работы с Docker Compose: настройка docker-compose.yml, монтирование томов, сети и переменные окружения. Приложение успешно запущено и протестировано на http://localhost
 
 ## Библиография
